@@ -13,11 +13,11 @@ import java.util.Optional;
 public interface CatApiFeignClient {
 
     @GetMapping(value = "/breeds", consumes = "application/json", produces = "application/json")
-    Optional<List<BreedResponseDto>> getAllBreeds();
+    List<BreedResponseDto> getAllBreeds();
 
     @GetMapping(value = "/images/search?limit=3&category_ids={categoryId}", consumes = "application/json", produces = "application/json")
     List<CatPictureResponseDto> getImagesByCategoryIds(@PathVariable("categoryId") Long categoryId);
 
     @GetMapping(value = "/images/search?limit=3&breed_ids={breedId}", consumes = "application/json", produces = "application/json")
-    List<CatPictureResponseDto> getImagesByBreedIds(@PathVariable("breedId") Long breedId);
+    List<CatPictureResponseDto> getImagesByBreedIds(@PathVariable("breedId") String breedId);
 }

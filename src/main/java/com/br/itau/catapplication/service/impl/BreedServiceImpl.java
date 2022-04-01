@@ -2,6 +2,7 @@ package com.br.itau.catapplication.service.impl;
 
 import com.br.itau.catapplication.entity.Breed;
 import com.br.itau.catapplication.feign.CatApiFeignClient;
+import com.br.itau.catapplication.feign.dto.BreedResponseDto;
 import com.br.itau.catapplication.mapper.BreedMapper;
 import com.br.itau.catapplication.repository.BreedRepository;
 import com.br.itau.catapplication.service.BreedService;
@@ -23,12 +24,12 @@ public class BreedServiceImpl implements BreedService {
     private BreedMapper breedMapper;
 
     @Override
-    public void collectBreeds() {
-        catApiFeignClient.getAllBreeds()
-            .ifPresent(breedResponseDtos -> {
-                final List<Breed> breedList = breedMapper.fromBreedResponseDtoList(breedResponseDtos);
-                breedRepository.saveAll(breedList);
-            });
+    public List<Breed> collectBreeds() {
+        final List<BreedResponseDto> breedResponseDtos = catApiFeignClient.getAllBreeds();
+
+        final List<Breed> breedList = breedMapper.fromBreedResponseDtoList(breedResponseDtos);
+
+        return breedRepository.saveAll(breedList);
     }
 
 }
