@@ -17,9 +17,6 @@ public class Picture implements Persistable<String> {
 
     private String url;
 
-    @Enumerated(EnumType.STRING)
-    private PictureTypeEnum pictureType;
-
     @Override
     public boolean isNew() {
         return true;
