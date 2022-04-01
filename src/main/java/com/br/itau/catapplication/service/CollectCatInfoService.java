@@ -1,14 +1,10 @@
 package com.br.itau.catapplication.service;
 
 import com.br.itau.catapplication.entity.Breed;
-import com.br.itau.catapplication.entity.Cat;
 import com.br.itau.catapplication.enums.CatCategoryEnum;
-import com.br.itau.catapplication.feign.dto.CatPictureResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Service

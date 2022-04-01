@@ -14,7 +14,7 @@ public class CatApiErrorDecoder implements ErrorDecoder {
     private final ErrorDecoder delegate = new Default();
 
     @Override
-    public Exception decode(String methodKey, Response response) {
+    public Exception decode(final String methodKey,final Response response) {
         final HttpStatus statusCode = HttpStatus.valueOf(response.status());
 
         switch (statusCode) {

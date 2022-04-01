@@ -11,17 +11,17 @@ public class TaskListener implements TaskExecutionListener {
   private CollectCatInfoService collectCatInfoService;
 
   @Override
-  public void onTaskStartup(TaskExecution taskExecution) {
+  public void onTaskStartup(final TaskExecution taskExecution) {
     collectCatInfoService.execute();
   }
 
   @Override
-  public void onTaskEnd(TaskExecution taskExecution) {
+  public void onTaskEnd(final TaskExecution taskExecution) {
     // Do nothing.
   }
 
   @Override
-  public void onTaskFailed(TaskExecution taskExecution, Throwable throwable) {
+  public void onTaskFailed(final TaskExecution taskExecution, Throwable throwable) {
     // Do nothing.
   }
 }

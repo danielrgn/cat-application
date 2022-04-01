@@ -1,7 +1,6 @@
 package com.br.itau.catapplication.service.impl;
 
 import com.br.itau.catapplication.entity.Breed;
-import com.br.itau.catapplication.feign.CatApiFeignClient;
 import com.br.itau.catapplication.feign.dto.BreedResponseDto;
 import com.br.itau.catapplication.mapper.BreedMapper;
 import com.br.itau.catapplication.repository.BreedRepository;

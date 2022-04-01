@@ -1,8 +1,6 @@
 package com.br.itau.catapplication.mapper;
 
-import com.br.itau.catapplication.entity.Breed;
 import com.br.itau.catapplication.entity.Picture;
-import com.br.itau.catapplication.feign.dto.BreedResponseDto;
 import com.br.itau.catapplication.feign.dto.CatPictureResponseDto;
 import org.mapstruct.Mapper;
 

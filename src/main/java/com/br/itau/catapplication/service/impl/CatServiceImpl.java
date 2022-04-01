@@ -7,8 +7,8 @@ import com.br.itau.catapplication.enums.CatCategoryEnum;
 import com.br.itau.catapplication.feign.dto.CatPictureResponseDto;
 import com.br.itau.catapplication.mapper.CatPictureMapper;
 import com.br.itau.catapplication.repository.CatRepository;
-import com.br.itau.catapplication.service.api.CatPictureApiService;
 import com.br.itau.catapplication.service.CatService;
+import com.br.itau.catapplication.service.api.CatPictureApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
