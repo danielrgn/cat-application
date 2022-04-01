@@ -1,6 +1,7 @@
 package com.br.itau.catapplication.entity;
 
 import lombok.Data;
+import org.springframework.data.domain.Persistable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "breed")
-public class Breed {
+public class Breed implements Persistable<String> {
 
     @Id
     private String id;
@@ -21,5 +22,10 @@ public class Breed {
     private String temperament;
 
     private String origin;
+
+    @Override
+    public boolean isNew() {
+        return true;
+    }
 
 }

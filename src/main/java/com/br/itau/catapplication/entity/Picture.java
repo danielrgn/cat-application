@@ -2,6 +2,7 @@ package com.br.itau.catapplication.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "picture")
-public class Picture {
+public class Picture implements Persistable<String> {
 
     @Id
     private String id;
@@ -18,5 +19,10 @@ public class Picture {
 
     @Enumerated(EnumType.STRING)
     private PictureTypeEnum pictureType;
+
+    @Override
+    public boolean isNew() {
+        return true;
+    }
 
 }
