@@ -1,6 +1,6 @@
 package com.br.itau.catapplication.listener;
 
-import com.br.itau.catapplication.service.CatConsumerTask;
+import com.br.itau.catapplication.service.CollectCatInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.task.listener.TaskExecutionListener;
 import org.springframework.cloud.task.repository.TaskExecution;
@@ -8,11 +8,11 @@ import org.springframework.cloud.task.repository.TaskExecution;
 public class TaskListener implements TaskExecutionListener {
 
   @Autowired
-  private CatConsumerTask catConsumerTask;
+  private CollectCatInfoService collectCatInfoService;
 
   @Override
   public void onTaskStartup(TaskExecution taskExecution) {
-    catConsumerTask.execute();
+    collectCatInfoService.execute();
   }
 
   @Override
