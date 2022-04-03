@@ -1,14 +1,14 @@
 package com.br.itau.cat.collector.application.service.impl;
 
-import com.br.itau.cat.core.application.entity.Breed;
-import com.br.itau.cat.core.application.entity.Cat;
-import com.br.itau.cat.core.application.entity.Picture;
 import com.br.itau.cat.collector.application.enums.CatCategoryEnum;
 import com.br.itau.cat.collector.application.feign.dto.CatPictureResponseDto;
 import com.br.itau.cat.collector.application.mapper.CatPictureMapper;
-import com.br.itau.cat.core.application.repository.CatRepository;
 import com.br.itau.cat.collector.application.service.CatService;
 import com.br.itau.cat.collector.application.service.api.CatPictureApiService;
+import com.br.itau.cat.core.application.entity.Breed;
+import com.br.itau.cat.core.application.entity.Cat;
+import com.br.itau.cat.core.application.entity.Picture;
+import com.br.itau.cat.core.application.repository.CatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

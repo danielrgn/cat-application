@@ -1,7 +1,7 @@
 package com.br.itau.cat.collector.application.service;
 
-import com.br.itau.cat.core.application.entity.Breed;
 import com.br.itau.cat.collector.application.enums.CatCategoryEnum;
+import com.br.itau.cat.core.application.entity.Breed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
