@@ -1,15 +1,30 @@
 version: '3'
 services:
   cat_collector_application:
-    build:
-      context: ./
-      dockerfile: ./collector/Dockerfile
-    image: cat_application/collector
+    container_name: cat_collector_application
+    build: ./collector
+    image: cat_application/collector:latest
     ports:
-      - '8081:8080'
+      - '8081:8081'
     environment:
-      ADDITIONAL_OPTS: '-Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m'
-      PROFILE: 'dev'
+      - ADDITIONAL_OPTS=-Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - DATABASE_URL=jdbc:mysql://db:3306/catsdb?useSSL=false
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - cat-network
+
+  cat_api_application:
+    container_name: cat_api_application
+    build: ./api
+    image: cat_application/api:latest
+    ports:
+      - '8082:8082'
+    environment:
+      - ADDITIONAL_OPTS=-Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - DATABASE_URL=jdbc:mysql://db:3306/catsdb?useSSL=false
     links:
       - db
     depends_on:
@@ -18,14 +33,15 @@ services:
       - cat-network
 
   db:
+    container_name: db
     image: mysql:5.6
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - '3306:3306'
     environment:
-      MYSQL_DATABASE: 'catsdb'
-      MYSQL_ROOT_PASSWORD: 'password'
+      - MYSQL_DATABASE=catsdb
+      - MYSQL_ROOT_PASSWORD=password
     networks:
       - cat-network
 
