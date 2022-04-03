@@ -1,7 +1,9 @@
 package com.br.itau.cat.core.application.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.util.List;
 @Data
 @Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "cat")
 public class Cat implements Persistable<Long> {
 

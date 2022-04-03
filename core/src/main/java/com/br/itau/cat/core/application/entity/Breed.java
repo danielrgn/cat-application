@@ -1,6 +1,8 @@
 package com.br.itau.cat.core.application.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.Table;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "breed")
 public class Breed implements Persistable<String> {
 
