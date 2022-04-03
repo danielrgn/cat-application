@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "0cb8348d-118a-4c0d-aa40-26593d409786",
+		"name": "Cat Api Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ALL v1/breed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/v1/breed",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"breed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY ID v1/breed/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/v1/breed/abys",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"breed",
+						"abys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY TEMPERAMENT v1/breed/search?temperament={temperament}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/v1/breed/search?temperament=Energetic",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"breed",
+						"search"
+					],
+					"query": [
+						{
+							"key": "temperament",
+							"value": "Energetic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BY ORIGIN v1/breed/search?origin={origin}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/v1/breed/search?origin=United States",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"breed",
+						"search"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "United States"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
