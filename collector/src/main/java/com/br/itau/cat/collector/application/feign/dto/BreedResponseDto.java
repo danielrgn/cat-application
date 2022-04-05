@@ -1,8 +1,11 @@
 package com.br.itau.cat.collector.application.feign.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BreedResponseDto {
 
     private String id;
