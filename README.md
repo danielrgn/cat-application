@@ -1,5 +1,7 @@
 # Cat Application
 
+> Para a organização do desenvolvimento do projeto foi criado uma issue com o [TODO LIST][2]
+
 ## Requisitos
 ```sh
 Java 11
@@ -83,8 +85,6 @@ http://localhost:8082/swagger-ui.html#/
 api/src/main/resources/postman/Cat_Api_Application.postman_collection.json
 ```
 
-[1]: https://thecatapi.com/
-
 ## Testes e cobertura
 
 **Executar o coverage:**
@@ -93,3 +93,15 @@ api/src/main/resources/postman/Cat_Api_Application.postman_collection.json
 sdk use java 11.0.2-open
 mvnw clean install jacoco:report
 ```
+
+Para testes de performance e testes de carga poderia-se utilizar o jmeter, gatling ou k6. No caso de testes de comportamento poderia-se utilizar o Cucumber. E para testes de integração/aceitação poderia-se utilizar o TestContainers. 
+
+## Logs
+
+Logs das métricas de execução de cada API:
+
+![image](https://user-images.githubusercontent.com/7592397/162075607-e20847f6-6e3c-46e9-a3e7-99014c9f60de.png)
+
+
+[1]: https://thecatapi.com/
+[2]: https://github.com/danielrgn/cat-application/issues/1
