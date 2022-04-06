@@ -36,11 +36,11 @@ public class BreedServiceImpl implements BreedService {
     public BreedResponseDto getById(final String id) {
         final Optional<Breed> breed = this.breedRepository.findById(id);
 
-        if (breed.isPresent()) {
-            return breedMapper.breedToBreedResponseDto(breed.get());
+        if (breed.isEmpty()) {
+            throw new BreedNotFoundException();
         }
 
-        throw new BreedNotFoundException();
+        return breedMapper.breedToBreedResponseDto(breed.get());
     }
 
     @Override

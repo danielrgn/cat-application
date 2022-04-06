@@ -19,9 +19,7 @@ public class BaseControllerAdvice {
     @ResponseBody
     public List<ResponseError.ErrorMessage> exception(final Exception ex) {
         return Collections.singletonList(ResponseError.ErrorMessage.builder()
-                .errorMessage(
-                        "Was encountered an error when processing your request."
-                                + " We apologize for the inconvenience.")
+                .errorMessage("Was encountered an error when processing your request. We apologize for the inconvenience.")
                 .build());
     }
 
@@ -32,7 +30,7 @@ public class BaseControllerAdvice {
             final HttpRequestMethodNotSupportedException ex) {
 
         return Collections.singletonList(ResponseError.ErrorMessage.builder()
-                .errorMessage("Method not allowed")
+                .errorMessage("Method not allowed.")
                 .build());
     }
 
@@ -41,7 +39,7 @@ public class BaseControllerAdvice {
     @ResponseBody
     public List<ResponseError.ErrorMessage> exception(final BreedNotFoundException ex) {
         return Collections.singletonList(ResponseError.ErrorMessage.builder()
-                .errorMessage("You attempted to get a Breed, but did not find any")
+                .errorMessage("You attempted to get a Breed, but did not find any.")
                 .build());
     }
 }
