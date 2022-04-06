@@ -1,13 +1,9 @@
 package com.br.itau.cat.collector.application.unity.mapper;
 
-import com.br.itau.cat.collector.application.factory.BreedFactory;
-import com.br.itau.cat.collector.application.factory.BreedResponseDtoFactory;
 import com.br.itau.cat.collector.application.factory.CatPictureResponseDtoFactory;
 import com.br.itau.cat.collector.application.factory.PictureFactory;
-import com.br.itau.cat.collector.application.mapper.BreedMapper;
 import com.br.itau.cat.collector.application.mapper.CatPictureMapper;
 import com.br.itau.cat.collector.application.unity.MapperUnityTest;
-import com.br.itau.cat.core.application.entity.Breed;
 import com.br.itau.cat.core.application.entity.Picture;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

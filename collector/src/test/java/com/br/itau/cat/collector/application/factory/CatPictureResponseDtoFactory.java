@@ -1,6 +1,5 @@
 package com.br.itau.cat.collector.application.factory;
 
-import com.br.itau.cat.collector.application.feign.dto.BreedResponseDto;
 import com.br.itau.cat.collector.application.feign.dto.CatPictureResponseDto;
 
 import java.util.Arrays;

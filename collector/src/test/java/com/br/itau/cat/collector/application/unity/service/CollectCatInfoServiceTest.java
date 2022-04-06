@@ -1,7 +1,6 @@
 package com.br.itau.cat.collector.application.unity.service;
 
 import com.br.itau.cat.collector.application.enums.CatCategoryEnum;
-import com.br.itau.cat.collector.application.factory.BreedFactory;
 import com.br.itau.cat.collector.application.service.BreedService;
 import com.br.itau.cat.collector.application.service.CatService;
 import com.br.itau.cat.collector.application.service.CollectCatInfoService;
@@ -10,11 +9,7 @@ import com.br.itau.cat.core.application.entity.Breed;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CollectCatInfoServiceTest extends UnityAbstractTest {
@@ -30,7 +25,7 @@ class CollectCatInfoServiceTest extends UnityAbstractTest {
 
     @Test
     void shouldExecuteCollectCatInfo() {
-        when(breedService.collectBreeds()).thenReturn(List.of(BreedFactory.build(), BreedFactory.build()));
+        when(breedService.collectBreeds()).thenReturn(getBreedList());
 
         collectCatInfoService.execute();
 

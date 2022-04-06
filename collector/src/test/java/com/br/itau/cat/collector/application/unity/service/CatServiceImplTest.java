@@ -1,14 +1,9 @@
 package com.br.itau.cat.collector.application.unity.service;
 
 import com.br.itau.cat.collector.application.enums.CatCategoryEnum;
-import com.br.itau.cat.collector.application.factory.BreedFactory;
-import com.br.itau.cat.collector.application.factory.BreedResponseDtoFactory;
-import com.br.itau.cat.collector.application.factory.CatPictureResponseDtoFactory;
 import com.br.itau.cat.collector.application.factory.PictureFactory;
-import com.br.itau.cat.collector.application.feign.dto.CatPictureResponseDto;
 import com.br.itau.cat.collector.application.mapper.CatPictureMapper;
 import com.br.itau.cat.collector.application.service.api.CatPictureApiService;
-import com.br.itau.cat.collector.application.service.impl.BreedServiceImpl;
 import com.br.itau.cat.collector.application.service.impl.CatServiceImpl;
 import com.br.itau.cat.collector.application.unity.UnityAbstractTest;
 import com.br.itau.cat.core.application.entity.Breed;
@@ -22,8 +17,6 @@ import org.mockito.Mock;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 class CatServiceImplTest extends UnityAbstractTest {
@@ -42,7 +35,7 @@ class CatServiceImplTest extends UnityAbstractTest {
 
     @Test
     void testSaveCatsAndPictureByBreed() {
-        when(catPictureApiService.getPicturesByBreedId(any())).thenReturn(List.of(CatPictureResponseDtoFactory.build(), CatPictureResponseDtoFactory.build()));
+        when(catPictureApiService.getPicturesByBreedId(any())).thenReturn(getCatPictureResponseDtoList());
         when(catPictureMapper.fromCatPictureResponseDtoList(anyList())).thenReturn(List.of(PictureFactory.build(), PictureFactory.build()));
 
         catService.saveCatsAndPictures(Breed.builder().build());
@@ -53,11 +46,10 @@ class CatServiceImplTest extends UnityAbstractTest {
     @ParameterizedTest(name= "testSaveCatsAndPictureByCatCategoryEnum=({0})")
     @EnumSource(CatCategoryEnum.class)
     void testSaveCatsAndPictureByCatCategoryEnum(final CatCategoryEnum catCategoryEnum) {
-        when(catPictureApiService.getPicturesByCategoryId(any())).thenReturn(List.of(CatPictureResponseDtoFactory.build(), CatPictureResponseDtoFactory.build()));
+        when(catPictureApiService.getPicturesByCategoryId(any())).thenReturn(getCatPictureResponseDtoList());
 
         catService.saveCatsAndPictures(catCategoryEnum);
 
         verify(catRepository, times(2)).save(any(Cat.class));
     }
-
 }
