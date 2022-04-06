@@ -1,5 +1,6 @@
 package com.br.itau.cat.api.application.v1.controller.impl;
 
+import com.br.itau.cat.api.application.aspect.logprofiler.LogProfiler;
 import com.br.itau.cat.api.application.service.BreedService;
 import com.br.itau.cat.api.application.v1.controller.BreedController;
 import com.br.itau.cat.api.application.v1.dto.BreedResponseDto;
@@ -16,6 +17,7 @@ public class BreedControllerImpl implements BreedController {
     @Autowired
     private BreedService breedService;
 
+    @LogProfiler
     @GetMapping
     @Override
     public ResponseEntity<List<?>> getAllBreeds() {
@@ -23,6 +25,7 @@ public class BreedControllerImpl implements BreedController {
         return ResponseEntity.ok(breedDtoList);
     }
 
+    @LogProfiler
     @GetMapping(value = "{id}")
     @Override
     public ResponseEntity<?> getBreedById(@PathVariable String id) {
@@ -30,6 +33,7 @@ public class BreedControllerImpl implements BreedController {
         return ResponseEntity.ok(breedDto);
     }
 
+    @LogProfiler
     @GetMapping(value = "/search", params = "temperament")
     @Override
     public ResponseEntity<?> getBreedsByTemperament(@RequestParam String temperament) {
@@ -37,6 +41,7 @@ public class BreedControllerImpl implements BreedController {
         return ResponseEntity.ok(breedDtoList);
     }
 
+    @LogProfiler
     @GetMapping(value = "/search", params = "origin")
     @Override
     public ResponseEntity<?> getBreedsByOrigin(@RequestParam String origin) {
