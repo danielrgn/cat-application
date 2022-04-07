@@ -22,15 +22,9 @@ public class CollectCatInfoService {
         log.info("Start collect breeds");
         final List<Breed> breeds = breedService.collectBreeds();
 
-        breeds.forEach(breed -> {
-            log.info("Start save cats and pictures by breed {}", breed);
-            catService.saveCatsAndPictures(breed);
-        });
+        breeds.forEach(breed -> catService.saveCatsAndPictures(breed));
 
-        log.info("Start save cats and pictures by hats");
         catService.saveCatsAndPictures(CatCategoryEnum.HATS);
-
-        log.info("Start save cats and pictures by sunglasses");
         catService.saveCatsAndPictures(CatCategoryEnum.SUNGLASSES);
     }
 }

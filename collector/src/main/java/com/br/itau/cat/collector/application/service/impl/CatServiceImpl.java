@@ -9,6 +9,7 @@ import com.br.itau.cat.core.application.entity.Breed;
 import com.br.itau.cat.core.application.entity.Cat;
 import com.br.itau.cat.core.application.entity.Picture;
 import com.br.itau.cat.core.application.repository.CatRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CatServiceImpl implements CatService {
 
     @Autowired
@@ -32,7 +34,9 @@ public class CatServiceImpl implements CatService {
         final List<CatPictureResponseDto> imagesByBreedIds = catPictureApiService.getPicturesByBreedId(breed.getId());
         final List<Picture> catPictureList = catPictureMapper.fromCatPictureResponseDtoList(imagesByBreedIds);
 
-        catRepository.save(Cat.builder().breed(breed).pictures(catPictureList).build());
+        final Cat cat = Cat.builder().breed(breed).pictures(catPictureList).build();
+        catRepository.save(cat);
+        log.info("{} saved", cat);
     }
 
     @Override
@@ -46,7 +50,9 @@ public class CatServiceImpl implements CatService {
                     .url(catPicture.getUrl())
                     .build());
 
-            catRepository.save(Cat.builder().breed(breed).pictures(pictureList).build());
+            final Cat cat = Cat.builder().breed(breed).pictures(pictureList).build();
+            catRepository.save(cat);
+            log.info("{} saved by category {}", cat, catCategoryEnum.name());
         });
     }
 

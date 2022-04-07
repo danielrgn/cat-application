@@ -1,6 +1,6 @@
 # Cat Application
 
-> Para a organização do desenvolvimento do projeto foi criado uma issue com o [TODO LIST][2]
+> Para a organização do desenvolvimento do projeto foi criado uma issue com um [TODO LIST][2]
 
 ## Requisitos
 ```sh
@@ -29,7 +29,7 @@ https://docs.docker.com/compose/install/
 
 ## Desenvolvimento
 ### Tecnologias
-- Spring / Spring Cloud Task
+- Spring / Spring Cloud Task / Spring AOP
 - Spring Data / Hibernate / JPA / H2
 - Spring Open Feign
 
@@ -101,7 +101,7 @@ Para testes de performance e testes de carga poderia-se utilizar o jmeter, gatli
 Logs da execução do módulo `collector`:
 ![image](https://user-images.githubusercontent.com/7592397/162113463-4a47ebe1-9a11-448a-a952-7329bd57d3a8.png)
 
-Logs das métricas de execução de cada API:
+Logs das métricas de execução de cada endpoint da API:
 
 ![image](https://user-images.githubusercontent.com/7592397/162075607-e20847f6-6e3c-46e9-a3e7-99014c9f60de.png)
 
