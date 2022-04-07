@@ -98,10 +98,12 @@ Para testes de performance e testes de carga poderia-se utilizar o jmeter, gatli
 
 ## Logs
 
+Logs da execução do módulo `collector`:
+![image](https://user-images.githubusercontent.com/7592397/162113463-4a47ebe1-9a11-448a-a952-7329bd57d3a8.png)
+
 Logs das métricas de execução de cada API:
 
 ![image](https://user-images.githubusercontent.com/7592397/162075607-e20847f6-6e3c-46e9-a3e7-99014c9f60de.png)
-
 
 [1]: https://thecatapi.com/
 [2]: https://github.com/danielrgn/cat-application/issues/1
