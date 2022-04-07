@@ -20,6 +20,7 @@ services:
     container_name: cat_api_application
     build: ./api
     image: cat_application/api:latest
+    restart: always
     ports:
       - '8082:8082'
     environment:
@@ -45,6 +46,31 @@ services:
     networks:
       - cat-network
 
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.30.3
+    ports:
+      - 9000:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:8.2.2
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - grafana-data:/var/lib/grafana
+
 networks:
   cat-network:
     driver: bridge
+
+volumes:
+  prometheus-data:
+
+  grafana-data:
