@@ -42,6 +42,8 @@ Este microserviço é composto pelos módulos:
 | *API*       | Recebe requisições síncronas e retorna os dados coletados pelo módulo `collector`
 | *Core*      | Domínio e componentes comuns da aplicação
 
+![arch_cats drawio](https://user-images.githubusercontent.com/7592397/162115875-c01c62bc-cb1e-4f43-96fa-4174b8d9ac59.png)
+
 ## Compilando o projeto
 
 Acessar a pasta raiz do projeto:
